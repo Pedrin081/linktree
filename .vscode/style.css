@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+}
+body {
+  /*background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+
+  /* aplicando shorthand no css */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /* height: 712px; esse codigo funciona de forma a fixar um tamanho para uma caixa na pagina, porem, o css trata a caixa com tamanho dinamico, assim que fomos preenchendo a caixa com itens ela vai modificar o tamanho dela automaticamente.*/
+  margin: 56px auto 0px; /*<- essa propriedade fara com que o conteiner se ajuste horizontalmente no meio. regra css não ajusta verticalmente. */
+  padding: 0 24px;
+}
+
+/*Elementos inline não sofrem mudança com o margin auto, para que seja automanticament centralizado no meio, Mas o pai dos elementos trabalha com outras formas de alinhamento, que fara com que os filhos sejam modificados de acordo com as propriedades postas ao pai. exemplo é o text-align:center; */
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 24px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+
+  -webkit-background-filter: blur(4px);
+  text-decoration: none;
+  font-weight: bold;
+
+  transition: background 0.2;
+}
+
+ul li a:hover {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid white;
+}
+
+#profile-icons {
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#profile-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s ease;
+  border-radius: 50%;
+}
+
+#profile-icons a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+footer {
+  padding: 24px 0;
+  font-size: 13px;
+  text-align: center;
+}
