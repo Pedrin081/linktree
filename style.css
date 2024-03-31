@@ -9,7 +9,7 @@
   --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.5);
-  --surface-color-hover: rgba(000, 000, 000, 0.2);
+  --surface-color-hover: rgba(000, 000, 000, 0.3);
   --highlit-color: rgba(255, 255, 255, 0.2);
   --switch-bg: url(./assets/moon-stars.svg) no-repeat center;
 }
@@ -19,7 +19,7 @@
   --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --surface-color-hover: rgba(0, 0, 0, 0.03);
   --highlit-color: rgba(0, 0, 0, 0.3);
   --switch-bg: url(./assets/sun.svg) no-repeat center;
 }
@@ -32,6 +32,7 @@ body {
 
   /* aplicando shorthand no css */
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -40,7 +41,9 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
+  height: 100vh;
   /* height: 712px; esse codigo funciona de forma a fixar um tamanho para uma caixa na pagina, porem, o css trata a caixa com tamanho dinamico, assim que fomos preenchendo a caixa com itens ela vai modificar o tamanho dela automaticamente.*/
   margin: 56px auto 0px; /*<- essa propriedade fara com que o conteiner se ajuste horizontalmente no meio. regra css não ajusta verticalmente. */
   padding: 0 24px;
@@ -83,6 +86,8 @@ body * {
   top: 50%;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide 0.2s;
 }
 
 #switch span {
@@ -97,8 +102,11 @@ body * {
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--surface-color-hover);
 }
 
 ul {
@@ -159,4 +167,30 @@ footer {
   padding: 24px 0;
   font-size: 13px;
   text-align: center;
+}
+@media (min-widht: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
